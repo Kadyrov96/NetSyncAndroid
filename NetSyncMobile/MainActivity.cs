@@ -12,11 +12,18 @@ namespace NetSyncMobile
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
-
+            
             Button connectSettingsBtn = this.FindViewById<Button>(Resource.Id.connectionMenu);
             connectSettingsBtn.Click += (sender, e) =>
             {
                 var intent = new Intent(this, typeof(ConnectionActivity));
+                StartActivity(intent);
+            };
+            
+            Button filePickerBtn = this.FindViewById<Button>(Resource.Id.folderSelect);
+            filePickerBtn.Click += (sender, e) =>
+            {
+                var intent = new Intent(this, typeof(FilePickerActivity));
                 StartActivity(intent);
             };
         }
