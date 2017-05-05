@@ -53,6 +53,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddingProfileActivity.cs" />
+    <Compile Include="Classes\FolderHandler.cs" />
+    <Compile Include="Classes\Hasher.cs" />
+    <Compile Include="Classes\IOStreamHandler.cs" />
+    <Compile Include="Classes\Synchroniser.cs" />
+    <Compile Include="Classes\SyncProfile.cs" />
+    <Compile Include="Classes\SyncProfilesHandler.cs" />
+    <Compile Include="Classes\SyncRecordList.cs" />
+    <Compile Include="Interfaces\IStreamHandler.cs" />
+    <Compile Include="NetSettingsActivity.cs" />
+    <Compile Include="ProfilesMenuActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,6 +99,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\folder.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
