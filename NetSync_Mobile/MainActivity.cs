@@ -2,6 +2,7 @@
 using Android.Widget;
 using Android.OS;
 using Android.Content;
+using System.IO;
 
 namespace NetSync_Mobile
 {
@@ -13,19 +14,31 @@ namespace NetSync_Mobile
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
 
-            //Button connectSettingsBtn = FindViewById<Button>(Resource.Layout);
-            //connectSettingsBtn.Click += (sender, e) =>
-            //{
-            //    var intent = new Intent(this, typeof(ConnectionActivity));
-            //    StartActivity(intent);
-            //};
+            Button syncProfileMenu_btn = FindViewById<Button>(Resource.Id.profileMenu);
+            syncProfileMenu_btn.Click += (sender, e) =>
+            {
+                var intent = new Intent(this, typeof(ProfilesMenuActivity));
+                StartActivity(intent);
+            };
 
-            //Button filePickerBtn = FindViewById<Button>(Resource.Id.folderSelect);
-            //filePickerBtn.Click += (sender, e) =>
-            //{
-            //    var intent = new Intent(this, typeof(FilePickerActivity));
-            //    StartActivity(intent);
-            //};
+            Button netSettings_btn = FindViewById<Button>(Resource.Id.connectionMenu);
+            netSettings_btn.Click += (sender, e) =>
+            {
+                var intent = new Intent(this, typeof(NetSettingsActivity));
+                StartActivity(intent);
+            };
+
+            Button startSync_btn = FindViewById<Button>(Resource.Id.startSync);
+            startSync_btn.Click += (sender, e) =>
+            {
+
+            };
+
+            Button devInfo_dtn = FindViewById<Button>(Resource.Id.connectionMenu);
+            devInfo_dtn.Click += (sender, e) =>
+            {
+
+            };
         }
     }
 }
