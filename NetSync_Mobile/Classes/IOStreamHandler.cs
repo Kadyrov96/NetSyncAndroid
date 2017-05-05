@@ -3,7 +3,7 @@ using System.IO;
 using System.Net.Security;
 using System.Text;
 
-namespace NetSync_WinDesktop
+namespace NetSync_Mobile
 {
     class IOStreamHandler: IStreamHandler
     {
