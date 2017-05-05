@@ -1,4 +1,4 @@
-﻿namespace NetSync_WinDesktop
+﻿namespace NetSync_Mobile
 {
     internal interface IStreamHandler
     {
