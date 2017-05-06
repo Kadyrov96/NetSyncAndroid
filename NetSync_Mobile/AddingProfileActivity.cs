@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
+﻿using Android.App;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 
 namespace NetSync_Mobile
@@ -23,7 +15,12 @@ namespace NetSync_Mobile
             Button some_btn = FindViewById<Button>(Resource.Id.btn_first);
             some_btn.Click += (sender, e) =>
             {
-
+                EditText profileName = FindViewById<EditText>(Resource.Id.profileName);
+                EditText profilePath = FindViewById<EditText>(Resource.Id.profilePath);
+                if (SyncProfilesHandler.AddNewProfile(profileName.Text, profilePath.Text, this))
+                {
+                    MessageDisplayer.ShowSuccessMessage(this, "System notifications", "New profile was successfully added.");
+                }             
             };
         }
     }
