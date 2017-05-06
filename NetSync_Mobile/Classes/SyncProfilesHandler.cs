@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Android.App;
+
+using System;
 using System.IO;
 using System.Text;
 using System.Collections.Generic;
@@ -10,17 +12,17 @@ namespace NetSync_Mobile
     /// </summary>
     class SyncProfilesHandler
     {
-        static internal string syncProfilesStore = Directory.GetCurrentDirectory() + @"\profiles.dat";
+        static internal string syncProfilesStore = "/storage/emulated/0/profiles.dat";
         static public List<SyncProfile> AvailableProfilesList { get; set; }
         static public List<SyncProfile> SelectedProfilesList { get; set; }
 
         /// <summary>
         /// Creates new sync profile using entered name and selected folder.
         /// </summary>
-        static public bool AddNewProfile(string name, string path)
+        static public bool AddNewProfile(string name, string path, Activity currentActivity)
         {
             SyncProfile newProfile = new SyncProfile(name, path, DateTime.Now.ToString());
-            if (CheckInputData(newProfile))
+            if (CheckInputData(newProfile, currentActivity))
             {
                 LoadProfiles();
                 return true;
@@ -32,7 +34,7 @@ namespace NetSync_Mobile
         /// <summary>
         /// Validates input name and folder to avoid the similar profiles.
         /// </summary>
-        static bool CheckInputData(SyncProfile newProfile)
+        static bool CheckInputData(SyncProfile newProfile, Activity currentActivity)
         {
             if (AvailableProfilesList.Count != 0)
             {
@@ -50,14 +52,14 @@ namespace NetSync_Mobile
                 }
                 if (AvailableProfilesList[searchIndex].ProfileName == newProfile.ProfileName)
                 {
-                    //MessageBox.Show("Profile with entered name is already exists. Please, enter other name",
-                    //    "Name entering error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageDisplayer.ShowAlertMessage(currentActivity,
+                        "Profile adding error", "Profile with entered name is already exists. Please, enter other name");
                     return false;
                 }
                 else if (AvailableProfilesList[searchIndex].ProfileSyncFolderPath == newProfile.ProfileSyncFolderPath)
                 {
-                    //MessageBox.Show("Profile with selected folder is already exists. Please, choose other folder",
-                    //    "Folder selecting error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageDisplayer.ShowAlertMessage(currentActivity,
+                        "Profile adding error", "Profile with selected folder is already exists. Please, choose other folder");
                     return false;
                 }
                 else
@@ -92,19 +94,22 @@ namespace NetSync_Mobile
         /// </summary>
         static public void LoadProfiles()
         {
-            string[] syncProfilesArray = File.ReadAllLines(syncProfilesStore);
             LoadEmptyProfiles();
-            foreach (var profile in syncProfilesArray)
+            if (File.Exists(syncProfilesStore))
             {
-                string[] substrings = profile.Split('|');
-                AvailableProfilesList.Add(new SyncProfile(substrings[0], substrings[1], substrings[2]));
+                string[] syncProfilesArray = File.ReadAllLines(syncProfilesStore);
+                foreach (var profile in syncProfilesArray)
+                {
+                    string[] substrings = profile.Split('|');
+                    AvailableProfilesList.Add(new SyncProfile(substrings[0], substrings[1], substrings[2]));
+                }
             }
         }
 
         /// <summary>
         /// Creates new list to hold profiles.
         /// </summary>
-        static public void LoadEmptyProfiles()
+        static void LoadEmptyProfiles()
         {
             AvailableProfilesList = new List<SyncProfile>();
             SelectedProfilesList = new List<SyncProfile>();
