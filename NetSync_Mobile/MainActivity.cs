@@ -31,7 +31,7 @@ namespace NetSync_Mobile
             Button startSync_btn = FindViewById<Button>(Resource.Id.startSync);
             startSync_btn.Click += (sender, e) =>
             {
-
+                
             };
 
             Button devInfo_dtn = FindViewById<Button>(Resource.Id.connectionMenu);
