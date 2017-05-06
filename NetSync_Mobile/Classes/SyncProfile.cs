@@ -1,6 +1,6 @@
 ﻿namespace NetSync_Mobile
 {
-    class SyncProfile
+    public class SyncProfile
     {
         public SyncProfile(string name, string path, string dateTime)
         {
