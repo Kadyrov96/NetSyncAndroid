@@ -1,10 +1,12 @@
 ﻿using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
 
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NetSync_Mobile
 {
@@ -33,23 +35,36 @@ namespace NetSync_Mobile
         protected override void OnResume()
         {
             base.OnResume();
-            SyncProfilesHandler.LoadProfiles();
+            profilesList.Adapter = new CusotmListAdapter(this, SyncProfilesHandler.AvailableProfilesList);
         }
-
         void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            var menu = new PopupMenu(this, profilesList.GetChildAt(e.Position));
+            View selectedItem = profilesList.GetChildAt(e.Position);
+            SyncProfile selectedProfile = SyncProfilesHandler.AvailableProfilesList[e.Position];
+
+            var menu = new PopupMenu(this, selectedItem);
             menu.Inflate(Resource.Layout.popup_menu);
             menu.MenuItemClick += (s, a) =>
             {
                 switch (a.Item.ItemId)
                 {
-                    case Resource.Id.pop_button1:
-                        SyncProfile selectedProfile = SyncProfilesHandler.AvailableProfilesList[e.Position];
+                    case Resource.Id.pop_button1:   
                         SyncProfilesHandler.DeleteProfile(selectedProfile.ProfileName);
+                        profilesList.Adapter = new CusotmListAdapter(this, SyncProfilesHandler.AvailableProfilesList);
                         break;
+
                     case Resource.Id.pop_button2:
-                        // delete stuff
+                        if(SyncProfilesHandler.SelectedProfilesList.Any(
+                            profile => profile.ProfileName == selectedProfile.ProfileName))
+                        {
+                            SyncProfilesHandler.SelectedProfilesList.Remove(selectedProfile);
+                            selectedItem.SetBackgroundColor(Color.Black);
+                        }
+                        else
+                        {
+                            SyncProfilesHandler.SelectedProfilesList.Add(selectedProfile);
+                            selectedItem.SetBackgroundColor(Color.Gray);
+                        }
                         break;
                 }
             };
