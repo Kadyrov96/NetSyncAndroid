@@ -62,6 +62,7 @@
     <Compile Include="Classes\SyncProfilesHandler.cs" />
     <Compile Include="Classes\SyncRecordList.cs" />
     <Compile Include="Interfaces\IStreamHandler.cs" />
+    <Compile Include="MessageDisplayer.cs" />
     <Compile Include="NetSettingsActivity.cs" />
     <Compile Include="ProfilesMenuActivity.cs" />
     <Compile Include="MainActivity.cs" />
@@ -85,6 +86,12 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\file_picker_list_item.axml" />
     <AndroidResource Include="Resources\layout\FilePickLayout.axml" />
+    <AndroidResource Include="Resources\layout\ListItemRow..axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\popup_menu.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
@@ -105,6 +112,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\alert.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
