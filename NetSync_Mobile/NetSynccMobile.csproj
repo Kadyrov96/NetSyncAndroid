@@ -51,6 +51,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
+    <Reference Include="Xamarin.Android.Support.v4, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.v4.22.2.1.0\lib\MonoAndroid403\Xamarin.Android.Support.v4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddingProfileActivity.cs" />
@@ -61,6 +65,10 @@
     <Compile Include="Classes\SyncProfile.cs" />
     <Compile Include="Classes\SyncProfilesHandler.cs" />
     <Compile Include="Classes\SyncRecordList.cs" />
+    <Compile Include="FilePickerActivity.cs" />
+    <Compile Include="FolderPicker\FileListAdapter.cs" />
+    <Compile Include="FolderPicker\FileListFragment.cs" />
+    <Compile Include="FolderPicker\FileListRowViewHolder.cs" />
     <Compile Include="Interfaces\IStreamHandler.cs" />
     <Compile Include="MessageDisplayer.cs" />
     <Compile Include="NetSettingsActivity.cs" />
@@ -70,6 +78,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\ProfilesMenu.axml">
@@ -90,6 +99,12 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\popup_menu.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\FilePicker.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\folder_popup_menu.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
