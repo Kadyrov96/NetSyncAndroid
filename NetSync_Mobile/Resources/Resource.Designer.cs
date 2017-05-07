@@ -69,89 +69,89 @@ namespace NetSync_Mobile
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f05000c
-			public const int ProfileNameRow = 2131034124;
-			
 			// aapt resource value: 0x7f05000d
-			public const int ProfilePathRow = 2131034125;
+			public const int ProfileNameRow = 2131034125;
 			
 			// aapt resource value: 0x7f05000e
-			public const int SyncDateRow = 2131034126;
+			public const int ProfilePathRow = 2131034126;
+			
+			// aapt resource value: 0x7f05000f
+			public const int SyncDateRow = 2131034127;
+			
+			// aapt resource value: 0x7f050000
+			public const int SyncProfileName = 2131034112;
+			
+			// aapt resource value: 0x7f050002
+			public const int SyncProfilePath = 2131034114;
 			
 			// aapt resource value: 0x7f050019
 			public const int addNewProfile = 2131034137;
 			
-			// aapt resource value: 0x7f050004
-			public const int btn_first = 2131034116;
+			// aapt resource value: 0x7f050009
+			public const int backBtn = 2131034121;
+			
+			// aapt resource value: 0x7f050015
+			public const int button3 = 2131034133;
 			
 			// aapt resource value: 0x7f050005
-			public const int btn_second = 2131034117;
+			public const int connect_button = 2131034117;
 			
-			// aapt resource value: 0x7f050014
-			public const int button3 = 2131034132;
-			
-			// aapt resource value: 0x7f050003
-			public const int buttons_container = 2131034115;
-			
-			// aapt resource value: 0x7f050008
-			public const int connect_button = 2131034120;
-			
-			// aapt resource value: 0x7f050011
-			public const int connectionMenu = 2131034129;
+			// aapt resource value: 0x7f050012
+			public const int connectionMenu = 2131034130;
 			
 			// aapt resource value: 0x7f05001a
 			public const int deleteProfile = 2131034138;
 			
-			// aapt resource value: 0x7f05000b
-			public const int file_list_fragment = 2131034123;
-			
-			// aapt resource value: 0x7f050009
-			public const int file_picker_image = 2131034121;
-			
 			// aapt resource value: 0x7f05000a
-			public const int file_picker_text = 2131034122;
+			public const int file_list_fragment = 2131034122;
+			
+			// aapt resource value: 0x7f050006
+			public const int file_picker_image = 2131034118;
+			
+			// aapt resource value: 0x7f050007
+			public const int file_picker_text = 2131034119;
 			
 			// aapt resource value: 0x7f050001
 			public const int folderSelectPath = 2131034113;
 			
-			// aapt resource value: 0x7f050006
-			public const int ip_text = 2131034118;
+			// aapt resource value: 0x7f05000b
+			public const int folder_pop_button1 = 2131034123;
+			
+			// aapt resource value: 0x7f05000c
+			public const int folder_pop_button2 = 2131034124;
+			
+			// aapt resource value: 0x7f050003
+			public const int ip_text = 2131034115;
+			
+			// aapt resource value: 0x7f050008
+			public const int layout_bottom_bar = 2131034120;
 			
 			// aapt resource value: 0x7f050018
-			public const int layout_bottom_bar = 2131034136;
-			
-			// aapt resource value: 0x7f050017
-			public const int listView1 = 2131034135;
-			
-			// aapt resource value: 0x7f050015
-			public const int pop_button1 = 2131034133;
+			public const int listView1 = 2131034136;
 			
 			// aapt resource value: 0x7f050016
-			public const int pop_button2 = 2131034134;
+			public const int pop_button1 = 2131034134;
 			
-			// aapt resource value: 0x7f050007
-			public const int port_text = 2131034119;
+			// aapt resource value: 0x7f050017
+			public const int pop_button2 = 2131034135;
 			
-			// aapt resource value: 0x7f050010
-			public const int profileMenu = 2131034128;
+			// aapt resource value: 0x7f050004
+			public const int port_text = 2131034116;
 			
-			// aapt resource value: 0x7f050000
-			public const int profileName = 2131034112;
-			
-			// aapt resource value: 0x7f050002
-			public const int profilePath = 2131034114;
+			// aapt resource value: 0x7f050011
+			public const int profileMenu = 2131034129;
 			
 			// aapt resource value: 0x7f05001b
 			public const int selectProfiles = 2131034139;
 			
+			// aapt resource value: 0x7f050014
+			public const int startSync = 2131034132;
+			
+			// aapt resource value: 0x7f050010
+			public const int tableRow1 = 2131034128;
+			
 			// aapt resource value: 0x7f050013
-			public const int startSync = 2131034131;
-			
-			// aapt resource value: 0x7f05000f
-			public const int tableRow1 = 2131034127;
-			
-			// aapt resource value: 0x7f050012
-			public const int tableRow2 = 2131034130;
+			public const int tableRow2 = 2131034131;
 			
 			static Id()
 			{
@@ -179,19 +179,25 @@ namespace NetSync_Mobile
 			public const int file_picker_list_item = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int FilePickLayout = 2130903044;
+			public const int FilePicker = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int listitemrow = 2130903045;
+			public const int FilePickLayout = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int Main = 2130903046;
+			public const int folder_popup_menu = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int popup_menu = 2130903047;
+			public const int listitemrow = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int ProfilesMenu = 2130903048;
+			public const int Main = 2130903048;
+			
+			// aapt resource value: 0x7f030009
+			public const int popup_menu = 2130903049;
+			
+			// aapt resource value: 0x7f03000a
+			public const int ProfilesMenu = 2130903050;
 			
 			static Layout()
 			{
