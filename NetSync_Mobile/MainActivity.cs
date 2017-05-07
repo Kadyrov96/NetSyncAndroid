@@ -2,7 +2,6 @@
 using Android.Widget;
 using Android.OS;
 using Android.Content;
-using System.IO;
 
 namespace NetSync_Mobile
 {
