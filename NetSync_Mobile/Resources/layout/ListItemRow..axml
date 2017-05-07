@@ -13,9 +13,9 @@
         android:paddingTop="5dp"
         android:textColor="#ffffff"
         android:textStyle="bold"
-        android:typeface="sans" 
+        android:typeface="sans"
         android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"/>
+        android:layout_centerVertical="true" />
     <TextView
         android:id="@+id/ProfilePathRow"
         android:layout_width="wrap_content"
@@ -36,5 +36,5 @@
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
         android:textColor="#fff"
-        android:textSize="11sp" />
+        android:textSize="12sp" />
 </RelativeLayout>
