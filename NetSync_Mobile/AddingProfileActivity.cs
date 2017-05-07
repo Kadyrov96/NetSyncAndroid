@@ -11,17 +11,8 @@ namespace NetSync_Mobile
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.AddingProfile);
+            EditText profilePath = FindViewById<EditText>(Resource.Id.SyncProfilePath);
 
-            Button some_btn = FindViewById<Button>(Resource.Id.btn_first);
-            some_btn.Click += (sender, e) =>
-            {
-                EditText profileName = FindViewById<EditText>(Resource.Id.profileName);
-                EditText profilePath = FindViewById<EditText>(Resource.Id.profilePath);
-                if (SyncProfilesHandler.AddNewProfile(profileName.Text, profilePath.Text, this))
-                {
-                    MessageDisplayer.ShowSuccessMessage(this, "System notifications", "New profile was successfully added.");
-                }             
-            };
         }
     }
 }
