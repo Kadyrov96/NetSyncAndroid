@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Text;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NetSync_Mobile
 {
@@ -36,43 +37,40 @@ namespace NetSync_Mobile
         /// </summary>
         static bool CheckInputData(SyncProfile newProfile, Activity currentActivity)
         {
-            if (AvailableProfilesList.Count != 0)
+            if (newProfile.ProfileName == "" || newProfile.ProfileSyncFolderPath == "")
             {
-                int searchIndex = 0;
-                for (int i = 0; i < AvailableProfilesList.Count; i++)
+                MessageDisplayer.ShowAlertMessage(currentActivity,
+                    "Profile adding error", "Attempt to add profile with empty name or/and empty folderpath.");
+                return false;
+            }
+            else
+            {
+                if (AvailableProfilesList.Count != 0)
                 {
-                    if (AvailableProfilesList[i].ProfileName == newProfile.ProfileName
-                        || AvailableProfilesList[i].ProfileSyncFolderPath == newProfile.ProfileSyncFolderPath)
+                    if(AvailableProfilesList.Any(profile => profile.ProfileName == newProfile.ProfileName))
                     {
-                        searchIndex = i;
-                        break;
+                        MessageDisplayer.ShowAlertMessage(currentActivity,
+                            "Profile adding error", "Profile with entered name is already exists. Please, enter other name");
+                        return false;
+                    }
+                    else if (AvailableProfilesList.Any(profile => profile.ProfileSyncFolderPath == newProfile.ProfileSyncFolderPath))
+                    {
+                        MessageDisplayer.ShowAlertMessage(currentActivity,
+                            "Profile adding error", "Profile with selected folder is already exists.Please, choose other folder");
+                        return false;
                     }
                     else
-                        i++;
-                }
-                if (AvailableProfilesList[searchIndex].ProfileName == newProfile.ProfileName)
-                {
-                    MessageDisplayer.ShowAlertMessage(currentActivity,
-                        "Profile adding error", "Profile with entered name is already exists. Please, enter other name");
-                    return false;
-                }
-                else if (AvailableProfilesList[searchIndex].ProfileSyncFolderPath == newProfile.ProfileSyncFolderPath)
-                {
-                    MessageDisplayer.ShowAlertMessage(currentActivity,
-                        "Profile adding error", "Profile with selected folder is already exists. Please, choose other folder");
-                    return false;
+                    {
+                        SaveProfile(newProfile);
+                        return true;
+                    }
                 }
                 else
                 {
                     SaveProfile(newProfile);
                     return true;
                 }
-            }
-            else
-            {
-                SaveProfile(newProfile);
-                return true;
-            }
+            }     
         }
 
         /// <summary>
