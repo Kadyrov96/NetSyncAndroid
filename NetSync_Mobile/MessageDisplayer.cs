@@ -15,10 +15,6 @@ namespace NetSync_Mobile
                 Toast.MakeText(currentActivity, "Accepted!", ToastLength.Short).Show();
             });
 
-            alert.SetNegativeButton("Cancel", (senderAlert, args) => {
-                Toast.MakeText(currentActivity, "Cancelled!", ToastLength.Short).Show();
-            });
-
             Dialog dialog = alert.Create();
             dialog.Show();
         }
@@ -31,7 +27,6 @@ namespace NetSync_Mobile
             alert.SetMessage(message);
             alert.SetPositiveButton("OK", (senderAlert, args) => {
                 Toast.MakeText(currentActivity, "Accepted!", ToastLength.Short).Show();
-                currentActivity.OnBackPressed();
             });
 
             alert.SetNegativeButton("Cancel", (senderAlert, args) => {
