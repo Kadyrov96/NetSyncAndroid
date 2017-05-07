@@ -6,38 +6,19 @@
         android:layout_width="match_parent"
         android:hint="Enter name of the profile"
         android:layout_height="wrap_content"
-        android:id="@+id/profileName" />
-  <EditText
-      android:layout_width="match_parent"
-      android:hint="Select folder to synchronise"
-      android:layout_height="wrap_content"
-      android:layout_toLeftOf="@+id/folderSelectPath"
-      android:layout_below="@id/profileName"
-      android:id="@+id/profilePath" />
+        android:id="@+id/SyncProfileName" />
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="Select folder to synchronise"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/folderSelectPath"
+        android:layout_below="@id/SyncProfileName"
+        android:id="@+id/SyncProfilePath" />
     <Button
         android:id="@+id/folderSelectPath"
         android:layout_width="60dp"
         android:layout_height="45dp"
-        android:layout_below="@id/profileName"
+        android:layout_below="@id/SyncProfileName"
         android:layout_alignParentRight="true"
         android:text="select" />
-    <LinearLayout
-        android:id="@+id/buttons_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/profilePath"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/btn_first"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Create new profile" />
-        <Button
-            android:id="@+id/btn_second"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Cancel" />
-    </LinearLayout>
 </RelativeLayout>
