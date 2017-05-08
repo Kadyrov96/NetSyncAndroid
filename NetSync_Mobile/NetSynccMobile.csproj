@@ -57,23 +57,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddingProfileActivity.cs" />
+    <Compile Include="Activities\AddingProfileActivity.cs" />
+    <Compile Include="Classes\AppData.cs" />
     <Compile Include="Classes\FolderHandler.cs" />
     <Compile Include="Classes\Hasher.cs" />
     <Compile Include="Classes\IOStreamHandler.cs" />
+    <Compile Include="Classes\ProfilesListAdapter.cs" />
     <Compile Include="Classes\Synchroniser.cs" />
     <Compile Include="Classes\SyncProfile.cs" />
     <Compile Include="Classes\SyncProfilesHandler.cs" />
     <Compile Include="Classes\SyncRecordList.cs" />
-    <Compile Include="FilePickerActivity.cs" />
+    <Compile Include="Activities\FolderPickerActivity.cs" />
     <Compile Include="FolderPicker\FileListAdapter.cs" />
     <Compile Include="FolderPicker\FileListFragment.cs" />
     <Compile Include="FolderPicker\FileListRowViewHolder.cs" />
     <Compile Include="Interfaces\IStreamHandler.cs" />
-    <Compile Include="MessageDisplayer.cs" />
-    <Compile Include="NetSettingsActivity.cs" />
-    <Compile Include="ProfilesMenuActivity.cs" />
-    <Compile Include="MainActivity.cs" />
+    <Compile Include="Classes\MessageDisplayer.cs" />
+    <Compile Include="Activities\NetSettingsActivity.cs" />
+    <Compile Include="Activities\ProfilesMenuActivity.cs" />
+    <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -101,7 +103,7 @@
     <AndroidResource Include="Resources\layout\popup_menu.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\FilePicker.axml">
+    <AndroidResource Include="Resources\layout\FolderPicker.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\folder_popup_menu.axml">
