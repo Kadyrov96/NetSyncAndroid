@@ -38,30 +38,26 @@ namespace NetSync_Mobile
                     switch (a.Item.ItemId)
                     {
                         case Resource.Id.folder_pop_button1:
-                            Toast.MakeText(Activity, "pop_b1", ToastLength.Long).Show();
-
                             CurrentDirectory = fileSystemInfo.FullName;
                             RefreshFilesList(fileSystemInfo.FullName);
-
                             base.OnListItemClick(l, v, position, id);
                             break;
 
                         case Resource.Id.folder_pop_button2:
-                            Toast.MakeText(Activity, "pop_b2", ToastLength.Long).Show();
-                            //EditText profilePath = v.FindViewById<EditText>(Resource.Id.folder);
-                            ProfilesMenuActivity.SetPath();
+                            AppData.SelectedFolderPath = fileSystemInfo.FullName;
+                            Activity.OnBackPressed();
+                            Toast.MakeText(Activity, "Selected folder is " + fileSystemInfo.FullName, ToastLength.Long).Show();
                             break;
                     }
                 };
                 menu.Show();
             }
-
         }
 
         public override void OnResume()
         {
             base.OnResume();
-            RefreshFilesList(CurrentDirectory);
+            RefreshFilesList(DefaultInitialDirectory);
         }
 
         public void RefreshFilesList(string directory)
