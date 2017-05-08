@@ -1,6 +1,5 @@
 ﻿using Android.App;
 using Android.OS;
-using Android.Widget;
 
 namespace NetSync_Mobile
 {
@@ -9,10 +8,9 @@ namespace NetSync_Mobile
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            AppData.SelectedFolderPath = "";
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.AddingProfile);
-            EditText profilePath = FindViewById<EditText>(Resource.Id.SyncProfilePath);
-
         }
     }
 }
