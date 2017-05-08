@@ -1,6 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System;
+using Android.Widget;
+
+
+using Android.App;
+using Android.OS;
+using Android.Views;
+using Android.Widget;
+using System.Linq;
+using Android.Content;
 
 namespace NetSync_Mobile
 {
@@ -34,8 +43,7 @@ namespace NetSync_Mobile
         public Synchroniser(FolderHandler _folderToSync)
         {
             folderToSync = _folderToSync;
-            syncDataStoreFullPath = Directory.GetCurrentDirectory() + @"\" +
-                Hasher.GetStringHash(folderToSync.FolderPath);
+            syncDataStoreFullPath = "/storage/emulated/0/" + Hasher.GetStringHash(folderToSync.FolderPath);
             //local_folderToSyncElements = new List<FileDescript>();
 
             local_list = new SyncRecordList();
