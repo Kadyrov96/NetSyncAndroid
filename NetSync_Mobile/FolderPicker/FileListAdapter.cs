@@ -21,8 +21,6 @@ namespace NetSync_Mobile
         public void AddDirectoryContents(IEnumerable<FileSystemInfo> directoryContents)
         {
             Clear();
-            // Notify the _adapter that things have changed or that there is nothing 
-            // to display.
             if (directoryContents.Any())
             {
                 AddAll(directoryContents.ToArray());
@@ -41,7 +39,8 @@ namespace NetSync_Mobile
             if (convertView == null)
             {
                 row = _context.LayoutInflater.Inflate(Resource.Layout.file_picker_list_item, parent, false);
-                viewHolder = new FileListRowViewHolder(row.FindViewById<TextView>(Resource.Id.file_picker_text), row.FindViewById<ImageView>(Resource.Id.file_picker_image));
+                viewHolder = new FileListRowViewHolder(row.FindViewById<TextView>(Resource.Id.file_picker_text), 
+                    row.FindViewById<ImageView>(Resource.Id.file_picker_image));
                 row.Tag = viewHolder;
             }
             else
