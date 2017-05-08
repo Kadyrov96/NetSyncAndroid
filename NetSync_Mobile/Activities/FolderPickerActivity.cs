@@ -4,13 +4,13 @@
     using Android.OS;
     using Android.Support.V4.App;
 
-    [Activity(Label = "Sync profiles menu")]
-    public class FilePickerActivity : FragmentActivity
+    [Activity(Label = "Select folder to synchronise")]
+    public class FolderPickerActivity : FragmentActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.FilePicker);
+            SetContentView(Resource.Layout.FolderPicker);
         }
     }
 }
