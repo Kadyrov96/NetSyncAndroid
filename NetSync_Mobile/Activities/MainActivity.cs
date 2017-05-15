@@ -9,9 +9,11 @@ namespace NetSync_Mobile
     [Activity(Label = "NetSync_Mobile", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
+        TCP_Client client;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+            client = new TCP_Client(this);
             SetContentView(Resource.Layout.Main);
 
             Button syncProfileMenu_btn = FindViewById<Button>(Resource.Id.profileMenu);
@@ -58,7 +60,8 @@ namespace NetSync_Mobile
                 if (serverHostname.Text != "")
                     AppData.ServerHostname = serverHostname.Text;
 
-                Toast.MakeText(this, AppData.ServerIPAddress, ToastLength.Short).Show();
+                client.ConnectToServer(AppData.ServerIPAddress, 888, AppData.ServerIPAddress);
+                //Toast.MakeText(this, AppData.ServerIPAddress, ToastLength.Short).Show();
             })
             .SetNegativeButton("Cancel", (senderAlert, args) =>
             {
