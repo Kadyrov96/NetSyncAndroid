@@ -77,9 +77,14 @@ namespace NetSync_Mobile
             throw new NotImplementedException();
         }
 
-        void IStreamHandler.SendString()
+        void IStreamHandler.SendString(string stringParam)
         {
-            throw new NotImplementedException();
+            if (SSL_Stream.CanWrite)
+            {
+                byte[] bytedStringParam = new byte[bufSize];
+                bytedStringParam = Encoding.Unicode.GetBytes(stringParam.ToCharArray());
+                SSL_Stream.Write(bytedStringParam, 0, bufSize);
+            }
         }
 
         void IStreamHandler.SendNum()
