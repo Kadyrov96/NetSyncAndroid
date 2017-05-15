@@ -8,7 +8,7 @@
         string ReceiveString();
         int ReceiveNum();
 
-        void SendString();
         void SendNum();
+        void SendString(string stringParam);
     }
 }
