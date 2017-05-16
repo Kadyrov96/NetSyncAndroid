@@ -23,7 +23,7 @@ namespace NetSync_Mobile
         public TCP_Client(Activity _currentActivity)
         {
             certificatesCollection = new X509CertificateCollection();
-            certificatesCollection.Add(new X509Certificate2(certificatePath, certificatePassword));
+            //certificatesCollection.Add(new X509Certificate2(certificatePath, certificatePassword));
             tcpClient = new TcpClient();
             currActivity = _currentActivity;
         }
@@ -33,7 +33,7 @@ namespace NetSync_Mobile
             {
                 tcpClient.Connect(ServerIP, ServerPort);
                 SSLStream = new SslStream(tcpClient.GetStream(), false);
-                SSLStream.AuthenticateAsClient(hostName, certificatesCollection, SslProtocols.Tls12, true);
+                //SSLStream.AuthenticateAsClient(hostName, certificatesCollection, SslProtocols.Tls12, true);
                 Toast.MakeText(currActivity, "Successfully connected to server!", ToastLength.Short).Show();
             }
             catch (Exception exMessage)
