@@ -10,6 +10,7 @@ namespace NetSync_Mobile
     public class MainActivity : Activity
     {
         TCP_Client client;
+        ProfileProcessor profileProcessor;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -29,6 +30,24 @@ namespace NetSync_Mobile
             Button startSync_btn = FindViewById<Button>(Resource.Id.startSync);
             startSync_btn.Click += (sender, e) =>
             {
+                try
+                {
+                    if (SyncProfilesHandler.SelectedProfilesList != null)
+                        foreach (var profile in SyncProfilesHandler.SelectedProfilesList)
+                        {
+                            //Toast.MakeText(this, "profile #" + idx.ToString(), ToastLength.Short).Show();
+                            profileProcessor = new ProfileProcessor(TCP_Client.SSLStream);
+                            profileProcessor.ProcessingProfile(profile);
+                            Toast.MakeText(this, profile.ProfileName, ToastLength.Short).Show();
+                            Toast.MakeText(this, AppData.Message1, ToastLength.Short).Show();
+                            Toast.MakeText(this, AppData.Message2, ToastLength.Short).Show();
+                        }
+                }
+                catch (System.Exception)
+                {
+
+                    throw;
+                }
 
             };
 
