@@ -62,7 +62,7 @@
     <Compile Include="Classes\FolderHandler.cs" />
     <Compile Include="Classes\Hasher.cs" />
     <Compile Include="Classes\IOStreamHandler.cs" />
-    <Compile Include="Classes\ProfileHandler.cs" />
+    <Compile Include="Classes\ProfileProcessor.cs" />
     <Compile Include="Classes\ProfilesListAdapter.cs" />
     <Compile Include="Classes\Synchroniser.cs" />
     <Compile Include="Classes\SyncProfile.cs" />
