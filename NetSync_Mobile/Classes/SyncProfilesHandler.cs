@@ -33,6 +33,17 @@ namespace NetSync_Mobile
         }
 
         /// <summary>
+        /// Creates new sync profile using entered name and selected folder.
+        /// </summary>
+        static public bool AddNewProfile(string name, string path)
+        {
+            SyncProfile newProfile = new SyncProfile(name, path, DateTime.Now.ToString());
+            SaveProfile(newProfile);
+            LoadProfiles();
+            return true;
+        }
+
+        /// <summary>
         /// Validates input name and folder to avoid the similar profiles.
         /// </summary>
         static bool CheckInputData(SyncProfile newProfile, Activity currentActivity)
@@ -134,17 +145,8 @@ namespace NetSync_Mobile
         /// </summary>
         static public void UpdateProfile(SyncProfile profile)
         {
-            string[] syncProfilesArray = File.ReadAllLines(syncProfilesStore);
-            foreach (var profileString in syncProfilesArray)
-            {
-                if (profileString.Contains(profile.ProfileName))
-                {
-                    profileString.Replace(profile.SyncDateTime, DateTime.Now.ToString());
-                    break;
-                }                 
-            }
-
-            SaveProfile(profile);
+            DeleteProfile(profile.ProfileName);
+            AddNewProfile(profile.ProfileName, profile.ProfileSyncFolderPath);
         }
     }
 }
