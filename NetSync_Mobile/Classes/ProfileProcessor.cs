@@ -14,7 +14,7 @@ namespace NetSync_Mobile
 
         public void ProcessingProfile(SyncProfile profile)
         {
-            streamHandler.SendString(profile.ProfileName);
+            //streamHandler.SendString(profile.ProfileName);
 
             syncService = new Synchroniser(new FolderHandler(profile.ProfileSyncFolderPath));
             syncService.Synchronise(streamHandler);
