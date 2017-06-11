@@ -1,44 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#ffffff"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:textColor="#ffffff"
         android:textStyle="bold"
         android:typeface="sans"
         android:textSize="18sp"
         android:layout_width="match_parent"
-        android:hint="Enter name of the prfoile"
+        android:textColor="#10C7FF"
+        android:textColorHint="#C7CED1"
+        android:hint="Введите имя профиля"
         android:layout_height="wrap_content"
         android:id="@+id/ProfNameTextView" />
     <EditText
         android:layout_width="match_parent"
         android:layout_below="@id/ProfNameTextView"
-        android:hint="For example, Profile1"
+        android:textColor="#10C7FF"
+        android:hint="Например, Profile1"
+        android:textColorHint="#C7CED1"
         android:layout_height="wrap_content"
         android:id="@+id/SyncProfileName" />
     <TextView
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:textColor="#ffffff"
         android:textStyle="bold"
         android:typeface="sans"
         android:textSize="18sp"
+        android:textColor="#10C7FF"
         android:layout_width="match_parent"
-        android:hint="Select folder to synchronise"
+        android:hint="Выберите каталог для профиля"
+        android:textColorHint="#C7CED1"
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@+id/folderSelectPath"
         android:layout_below="@id/SyncProfileName"
         android:id="@+id/ProfPathTextView" />
-    <Button
-        android:id="@+id/SelectFolderPath_btn"
-        android:layout_width="60dp"
-        android:layout_height="45dp"
-        android:layout_below="@id/SyncProfileName"
-        android:layout_alignParentRight="true"
-        android:text="select" />
+  <ImageButton
+      android:id="@+id/SelectFolder_btn"
+      android:shape="oval"
+      android:layout_width="48dp"
+      android:layout_height="48dp"
+      android:layout_below="@id/SyncProfileName"
+      android:layout_alignParentRight="true"
+      android:src="@drawable/plus" />
 </RelativeLayout>
