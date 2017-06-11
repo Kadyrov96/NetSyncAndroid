@@ -50,8 +50,8 @@ namespace NetSync_Mobile
         {
             if (newProfile.ProfileName == "" || newProfile.ProfileSyncFolderPath == "")
             {
-                MessageDisplayer.ShowAlertMessage(currentActivity, "Profile adding error", 
-                    "Attempt to add profile with empty name or/and empty folderpath.");
+                MessageDisplayer.ShowAlertMessage(currentActivity, "Ошибка добавления профиля", 
+                    "Попытка создать профиль с пустым именем и/или пустым каталогом.");
                 return false;
             }
             else
@@ -60,14 +60,14 @@ namespace NetSync_Mobile
                 {
                     if(AvailableProfilesList.Any(profile => profile.ProfileName == newProfile.ProfileName))
                     {
-                        MessageDisplayer.ShowAlertMessage(currentActivity, "Profile adding error", 
-                            "Profile with entered name is already exists. Please, enter other name");
+                        MessageDisplayer.ShowAlertMessage(currentActivity, "Ошибка добавления профиля", 
+                            "Профиль с введеным именем уже существует.Пожалуйста, введите другое имя.");
                         return false;
                     }
                     else if (AvailableProfilesList.Any(profile => profile.ProfileSyncFolderPath == newProfile.ProfileSyncFolderPath))
                     {
-                        MessageDisplayer.ShowAlertMessage(currentActivity, "Profile adding error", 
-                            "Profile with selected folder is already exists.Please, choose other folder");
+                        MessageDisplayer.ShowAlertMessage(currentActivity, "Ошибка добавления профиля",
+                            "Профиль с выбранным каталогом уже существует.Пожалуйста, выберите другой каталог.");
                         return false;
                     }
                     else
