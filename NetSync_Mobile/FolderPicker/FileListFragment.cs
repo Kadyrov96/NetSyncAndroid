@@ -1,6 +1,8 @@
 namespace NetSync_Mobile
 {
     using Android.App;
+    using Android.Graphics;
+    using Android.Graphics.Drawables;
     using Android.OS;
     using Android.Views;
     using Android.Widget;
@@ -22,6 +24,8 @@ namespace NetSync_Mobile
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            var colorDrawable = new ColorDrawable(Color.DeepSkyBlue);
+            Activity.ActionBar.SetBackgroundDrawable(colorDrawable);
             _adapter = new FileListAdapter(Activity, new FileSystemInfo[0]);
             ListAdapter = _adapter;
         }
@@ -46,7 +50,7 @@ namespace NetSync_Mobile
                         case Resource.Id.folder_pop_button2:
                             AppData.SelectedFolderPath = fileSystemInfo.FullName;
                             Activity.OnBackPressed();
-                            Toast.MakeText(Activity, "Selected folder is " + fileSystemInfo.FullName, ToastLength.Long).Show();
+                            Toast.MakeText(Activity, "Выбранный каталог - " + fileSystemInfo.FullName, ToastLength.Long).Show();
                             break;
                     }
                 };
