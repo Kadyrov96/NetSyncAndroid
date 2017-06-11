@@ -1,6 +1,8 @@
 ﻿using Android.App;
 using Android.Widget;
+using Sockets.Plugin;
 using System;
+using System.Net;
 using System.Net.Security;
 using System.Net.Sockets;
 using System.Security.Authentication;
@@ -27,12 +29,23 @@ namespace NetSync_Mobile
             tcpClient = new TcpClient();
             currActivity = _currentActivity;
         }
-        public void ConnectToServer(string ServerIP, int ServerPort, string hostName)
+        public async void ConnectToServer(string ServerIP, int ServerPort, string hostName)
         {
             try
             {
-                tcpClient.Connect(ServerIP, ServerPort);
-                SSLStream = new SslStream(tcpClient.GetStream(), false);
+                var address = "192.168.169.29";
+                var port = 816;
+                var r = new Random();
+
+                //var client = new TcpSocketClient();
+                //await client.ConnectAsync(address, port);
+
+                IPAddress ipAddress = IPAddress.Parse("192.168.169.29");
+                IPEndPoint IP_End = new IPEndPoint(IPAddress.Parse("192.168.169.29"), int.Parse("816"));
+                tcpClient.Connect(IP_End);
+                ////SSLStream = new SslStream(tcpClient.GetStream(), false);
+                ////IPAddress ipAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList[0];
+                //Toast.MakeText(currActivity, ipAddress.ToString(), ToastLength.Short).Show();
                 //SSLStream.AuthenticateAsClient(hostName, certificatesCollection, SslProtocols.Tls12, true);
                 Toast.MakeText(currActivity, "Successfully connected to server!", ToastLength.Short).Show();
             }
