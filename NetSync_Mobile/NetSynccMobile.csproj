@@ -47,6 +47,14 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
+    <Reference Include="Sockets.Plugin, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\rda.SocketsForPCL.2.0.2\lib\MonoAndroid10\Sockets.Plugin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Sockets.Plugin.Abstractions, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\rda.SocketsForPCL.2.0.2\lib\MonoAndroid10\Sockets.Plugin.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -58,7 +66,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\AddingProfileActivity.cs" />
+    <Compile Include="Activities\ConflictResolveActivity.cs" />
     <Compile Include="Classes\AppData.cs" />
+    <Compile Include="Classes\ConflictFilesListAdapter.cs" />
     <Compile Include="Classes\FolderHandler.cs" />
     <Compile Include="Classes\Hasher.cs" />
     <Compile Include="Classes\IOStreamHandler.cs" />
@@ -85,10 +95,12 @@
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\layout\ProfilesMenu.axml">
+    <AndroidResource Include="Resources\drawable\file.png" />
+    <AndroidResource Include="Resources\drawable\folder.png" />
+    <AndroidResource Include="Resources\layout\AddingProfile.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\AddingProfile.axml">
+    <AndroidResource Include="Resources\layout\ProfilesMenu.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ConflictLayout.axml">
@@ -97,8 +109,12 @@
     <AndroidResource Include="Resources\layout\ConnectionsSettings.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\file_picker_list_item.axml" />
-    <AndroidResource Include="Resources\layout\FilePickLayout.axml" />
+    <AndroidResource Include="Resources\layout\file_picker_list_item.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\FilePickLayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\layout\ListItemRow..axml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -109,6 +125,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\folder_popup_menu.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\conflictFileItemRow.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -127,13 +146,31 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\file.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\folder.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\alert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\sync.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\wifi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\folder_plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\upload.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
