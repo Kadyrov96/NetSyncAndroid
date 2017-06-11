@@ -3,10 +3,12 @@ using Android.Widget;
 using Android.OS;
 using Android.Content;
 using Android.Views;
+using Android.Graphics.Drawables;
+using Android.Graphics;
 
 namespace NetSync_Mobile
 {
-    [Activity(Label = "NetSync_Mobile", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "NetSync_Mobile", MainLauncher = true, Icon = "@drawable/Icon")]
     public class MainActivity : Activity
     {
         TCP_Client client;
@@ -14,9 +16,12 @@ namespace NetSync_Mobile
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+            var colorDrawable = new ColorDrawable(Color.DeepSkyBlue);
+            ActionBar.SetBackgroundDrawable(colorDrawable);
+
             client = new TCP_Client(this);
             SetContentView(Resource.Layout.Main);
-
+            
             Button syncProfileMenu_btn = FindViewById<Button>(Resource.Id.profileMenu);
             syncProfileMenu_btn.Click += (sender, e) =>
             {
@@ -56,12 +61,12 @@ namespace NetSync_Mobile
             {
 
             };
-
         }
 
         void CreateNetSettingsDialog()
         {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            ContextThemeWrapper ctw = new ContextThemeWrapper(this, Android.Resource.Style.ThemeHoloLightDarkActionBar);
+            AlertDialog.Builder builder = new AlertDialog.Builder(ctw);
             LayoutInflater inflater = Application.Context.GetSystemService(LayoutInflaterService) as LayoutInflater;
             View view = inflater.Inflate(Resource.Layout.ConnectionsSettings, null);
             builder.SetView(view);
@@ -70,7 +75,8 @@ namespace NetSync_Mobile
             EditText serverHostname = view.FindViewById<EditText>(Resource.Id.port_text);
             //Button selectFolder_btn = view.FindViewById<Button>(Resource.Id.SelectFolderPath_btn);
 
-            builder.SetTitle("Network settings")
+            builder.SetTitle("НАСТРОЙКИ ПОДКЛЮЧЕНИЯ")
+    
             .SetPositiveButton("Accept", (senderAlert, args) =>
             {
                 if (serverIPAddress.Text != "")
@@ -80,7 +86,7 @@ namespace NetSync_Mobile
                     AppData.ServerHostname = serverHostname.Text;
 
                 client.ConnectToServer(AppData.ServerIPAddress, 888, AppData.ServerIPAddress);
-                //Toast.MakeText(this, AppData.ServerIPAddress, ToastLength.Short).Show();
+                //Toast.MakeText(this, "Connected", ToastLength.Short).Show();
             })
             .SetNegativeButton("Cancel", (senderAlert, args) =>
             {
