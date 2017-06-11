@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Views;
 using Android.Widget;
 
 namespace NetSync_Mobile
@@ -7,13 +8,14 @@ namespace NetSync_Mobile
     {
         static void ShowMessage(Activity currentActivity, string title, string message, int msgTypeFlag)
         {
-            AlertDialog.Builder alert = new AlertDialog.Builder(currentActivity);
+            ContextThemeWrapper ctw = new ContextThemeWrapper(currentActivity, Android.Resource.Style.ThemeHoloLightDarkActionBar);
+            AlertDialog.Builder alert = new AlertDialog.Builder(ctw);
             alert.SetIcon(msgTypeFlag);
             alert.SetTitle(title);
             alert.SetMessage(message);
             alert.SetPositiveButton("OK", (senderAlert, args) =>
             {
-                Toast.MakeText(currentActivity, "Accepted!", ToastLength.Short).Show();
+                Toast.MakeText(currentActivity, "Принято!", ToastLength.Short).Show();
             });
 
             Dialog dialog = alert.Create();

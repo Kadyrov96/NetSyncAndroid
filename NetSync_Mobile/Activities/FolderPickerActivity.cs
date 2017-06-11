@@ -4,7 +4,7 @@
     using Android.OS;
     using Android.Support.V4.App;
 
-    [Activity(Label = "Select folder to synchronise")]
+    [Activity(Label = "ВЫБЕРИТЕ КАТАЛОГ")]
     public class FolderPickerActivity : FragmentActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

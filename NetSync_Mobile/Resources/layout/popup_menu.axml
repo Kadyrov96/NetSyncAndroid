@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/pop_button1"
-        android:title="Delete profile"
+        android:title="Удалить профиль"
         showAsAction="always" />
     <item
         android:id="@+id/pop_button2"
-        android:title="Add to sync"
+        android:title="Добавить в синхронизируемые"
         showAsAction="always" />
 </menu>
