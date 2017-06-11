@@ -11,20 +11,20 @@
         android:lineSpacingExtra="3dp"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
-        android:textColor="#ffffff"
+        android:textColor="#0A6681"
         android:textStyle="bold"
         android:typeface="sans"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true" />
+        android:textSize="20sp"
+        android:layout_alignParentLeft="true"/>
     <TextView
         android:id="@+id/ProfilePathRow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/ProfileNameRow"
+        android:layout_below="@+id/ProfileNameRow"
         android:lineSpacingExtra="3dp"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
-        android:textColor="#ffffff"
+        android:textColor="#3D94AF"
         android:textStyle="bold"
         android:typeface="sans" />
     <TextView
@@ -32,9 +32,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ProfilePathRow"
-        android:layout_toRightOf="@id/ProfileNameRow"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
-        android:textColor="#fff"
+        android:textColor="#10C7FF"
         android:textSize="12sp" />
 </RelativeLayout>
