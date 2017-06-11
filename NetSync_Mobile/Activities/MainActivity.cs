@@ -56,10 +56,11 @@ namespace NetSync_Mobile
 
             };
 
-            Button devInfo_dtn = FindViewById<Button>(Resource.Id.connectionMenu);
+            Button devInfo_dtn = FindViewById<Button>(Resource.Id.button3);
             devInfo_dtn.Click += (sender, e) =>
             {
-
+                var intent = new Intent(this, typeof(ConflictResolveActivity));
+                StartActivity(intent);
             };
         }
 
@@ -77,7 +78,7 @@ namespace NetSync_Mobile
 
             builder.SetTitle("НАСТРОЙКИ ПОДКЛЮЧЕНИЯ")
     
-            .SetPositiveButton("Accept", (senderAlert, args) =>
+            .SetPositiveButton("ОК", (senderAlert, args) =>
             {
                 if (serverIPAddress.Text != "")
                     AppData.ServerIPAddress = serverIPAddress.Text;
@@ -88,7 +89,7 @@ namespace NetSync_Mobile
                 client.ConnectToServer(AppData.ServerIPAddress, 888, AppData.ServerIPAddress);
                 //Toast.MakeText(this, "Connected", ToastLength.Short).Show();
             })
-            .SetNegativeButton("Cancel", (senderAlert, args) =>
+            .SetNegativeButton("Отмена", (senderAlert, args) =>
             {
 
             });
