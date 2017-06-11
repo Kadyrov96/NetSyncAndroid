@@ -43,8 +43,8 @@ namespace NetSync_Mobile
 
             SyncProfile item = this[position];
             view.FindViewById<TextView>(Resource.Id.ProfileNameRow).Text = item.ProfileName;
-            view.FindViewById<TextView>(Resource.Id.ProfilePathRow).Text = "Folder path: " + item.ProfileSyncFolderPath;
-            view.FindViewById<TextView>(Resource.Id.SyncDateRow).Text = "Last sync date & time: " + item.SyncDateTime;
+            view.FindViewById<TextView>(Resource.Id.ProfilePathRow).Text = "КАТАЛОГ: " + item.ProfileSyncFolderPath;
+            view.FindViewById<TextView>(Resource.Id.SyncDateRow).Text = "ДАТА И ВРЕМЯ СИНХРОНИЗАЦИИ: " + item.SyncDateTime;
 
             return view;
         }
