@@ -21,5 +21,6 @@
         android:textSize="28sp"
         android:layout_marginLeft="10dip"
         android:singleLine="true"
+        android:textColor="#10C7FF"
         android:text="filename" />
 </LinearLayout>

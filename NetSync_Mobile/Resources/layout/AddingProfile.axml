@@ -41,10 +41,9 @@
         android:id="@+id/ProfPathTextView" />
     <ImageButton
         android:id="@+id/SelectFolder_btn"
-        android:shape="oval"
-        android:layout_width="45dp"
+        android:layout_width="60dp"
         android:layout_height="45dp"
         android:layout_below="@id/SyncProfileName"
         android:layout_alignParentRight="true"
-        android:src="@drawable/info" />
+        android:src="@drawable/folder_plus" />
 </RelativeLayout>

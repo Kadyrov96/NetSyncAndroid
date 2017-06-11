@@ -15,7 +15,7 @@
         android:textStyle="bold"
         android:typeface="sans"
         android:textSize="20sp"
-        android:layout_alignParentLeft="true"/>
+        android:layout_alignParentLeft="true" />
     <TextView
         android:id="@+id/ProfilePathRow"
         android:layout_width="wrap_content"

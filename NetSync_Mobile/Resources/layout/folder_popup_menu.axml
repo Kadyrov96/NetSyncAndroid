@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/folder_pop_button1"
-        android:title="Go further"
+        android:title="Переместиться внутрь каталога"
         android:showAsAction="always" />
     <item
         android:id="@+id/folder_pop_button2"
-        android:title="Select this folder"
+        android:title="Выбрать этот каталог"
         android:showAsAction="always" />
 </menu>

@@ -3,7 +3,7 @@ using Android.OS;
 
 namespace NetSync_Mobile
 {
-    [Activity(Label = "Adding new profile")]
+    [Activity(Label = "ДОБАВЛЕНИЕ НОВОГО ПРОФИЛЯ")]
     public class AddingProfileActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
