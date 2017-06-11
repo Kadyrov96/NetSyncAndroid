@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#ffffff"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <EditText
         android:layout_width="165dip"
-        android:hint="IP-address"
+        android:textColorHint ="#C7CED1"
+        android:hint="IP-адрес сервера"
         android:layout_height="wrap_content"
         android:id="@+id/ip_text" />
     <EditText
         android:layout_width="165dip"
-        android:hint="Port number"
+        android:textColorHint ="#C7CED1"
+        android:textColor ="#77C8F0"
+        android:hint="Имя хоста сервера"
         android:layout_height="wrap_content"
         android:layout_below="@id/ip_text"
         android:layout_alignParentLeft="true"
         android:id="@+id/port_text" />
     <Button
-        android:text="Connect to the remote host"
+        android:text="Подключиться к серверу"
         android:layout_width="160dip"
         android:layout_height="75dip"
         android:layout_toRightOf="@+id/ip_text"

@@ -39,12 +39,12 @@
         android:layout_toLeftOf="@+id/folderSelectPath"
         android:layout_below="@id/SyncProfileName"
         android:id="@+id/ProfPathTextView" />
-  <ImageButton
-      android:id="@+id/SelectFolder_btn"
-      android:shape="oval"
-      android:layout_width="48dp"
-      android:layout_height="48dp"
-      android:layout_below="@id/SyncProfileName"
-      android:layout_alignParentRight="true"
-      android:src="@drawable/plus" />
+    <ImageButton
+        android:id="@+id/SelectFolder_btn"
+        android:shape="oval"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/SyncProfileName"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/info" />
 </RelativeLayout>

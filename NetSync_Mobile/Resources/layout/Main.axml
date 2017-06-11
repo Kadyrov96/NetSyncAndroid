@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#ffffff"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
@@ -13,13 +14,17 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Sync profiles menu" />
+            android:drawableBottom="@drawable/list"
+            android:text="Меню профилей синхронизации"
+            android:paddingBottom="65dip" />
         <Button
             android:id="@+id/connectionMenu"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Connection settings" />
+            android:drawableBottom="@drawable/wifi"
+            android:text="Настройки сетевого подключения"
+            android:paddingBottom="65dip" />
     </TableRow>
     <TableRow
         android:id="@+id/tableRow2"
@@ -31,12 +36,18 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Start synchronisation" />
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:drawableBottom="@drawable/sync"
+            android:text="Запустить синхронизацию"
+            android:paddingBottom="65dip" />
         <Button
             android:id="@+id/button3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="About us" />
+            android:drawableBottom="@drawable/info"
+            android:text="О разработчиках"
+            android:paddingBottom="65dip" />
     </TableRow>
 </LinearLayout>
