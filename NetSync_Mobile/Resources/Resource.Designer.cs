@@ -48,13 +48,31 @@ namespace NetSync_Mobile
 			public const int alert = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int file = 2130837505;
+			public const int backwithborder = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int folder = 2130837506;
+			public const int file = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int Icon = 2130837507;
+			public const int folder = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int Icon = 2130837508;
+			
+			// aapt resource value: 0x7f020005
+			public const int info = 2130837509;
+			
+			// aapt resource value: 0x7f020006
+			public const int list = 2130837510;
+			
+			// aapt resource value: 0x7f020007
+			public const int plus = 2130837511;
+			
+			// aapt resource value: 0x7f020008
+			public const int sync = 2130837512;
+			
+			// aapt resource value: 0x7f020009
+			public const int wifi = 2130837513;
 			
 			static Drawable()
 			{
@@ -85,7 +103,7 @@ namespace NetSync_Mobile
 			public const int ProfilesListView = 2131034136;
 			
 			// aapt resource value: 0x7f050004
-			public const int SelectFolderPath_btn = 2131034116;
+			public const int SelectFolder_btn = 2131034116;
 			
 			// aapt resource value: 0x7f05000f
 			public const int SyncDateRow = 2131034127;
@@ -104,12 +122,6 @@ namespace NetSync_Mobile
 			
 			// aapt resource value: 0x7f050012
 			public const int connectionMenu = 2131034130;
-			
-			// aapt resource value: 0x7f05001d
-			public const int deleteProfile = 2131034141;
-			
-			// aapt resource value: 0x7f05001b
-			public const int deleteProfile_btn = 2131034139;
 			
 			// aapt resource value: 0x7f05000a
 			public const int file_list_fragment = 2131034122;
@@ -146,9 +158,6 @@ namespace NetSync_Mobile
 			
 			// aapt resource value: 0x7f050011
 			public const int profileMenu = 2131034129;
-			
-			// aapt resource value: 0x7f05001c
-			public const int selectProfiles_btn = 2131034140;
 			
 			// aapt resource value: 0x7f050014
 			public const int startSync = 2131034132;
