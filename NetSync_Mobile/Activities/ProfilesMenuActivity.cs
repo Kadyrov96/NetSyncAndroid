@@ -5,10 +5,11 @@ using Android.Views;
 using Android.Widget;
 using System.Linq;
 using Android.Content;
+using Android.Graphics.Drawables;
 
 namespace NetSync_Mobile
 {
-    [Activity(Label = "Sync profiles menu")]
+    [Activity(Label = "ПРОФИЛИ СИНХРОНИЗАЦИИ")]
     public class ProfilesMenuActivity : Activity
     {
         ListView profilesListView;
@@ -17,13 +18,17 @@ namespace NetSync_Mobile
         {
             base.OnCreate(savedInstanceState);
             SyncProfilesHandler.LoadProfiles();
+
+            var colorDrawable = new ColorDrawable(Color.DeepSkyBlue);
+            ActionBar.SetBackgroundDrawable(colorDrawable);
+
             SetContentView(Resource.Layout.ProfilesMenu);
 
             profilesListView = FindViewById<ListView>(Resource.Id.ProfilesListView);
             profilesListView.ItemClick += OnListItemClick;
             profilesListView.Adapter = new ProfilesListAdapter(this, SyncProfilesHandler.AvailableProfilesList);
 
-            Button addProfile_btn = FindViewById<Button>(Resource.Id.addNewProfile_btn);
+            ImageButton addProfile_btn = FindViewById<ImageButton>(Resource.Id.addNewProfile_btn);
             addProfile_btn.Click += (sender, e) => CreateAddingDialog();
         }
 
@@ -35,33 +40,34 @@ namespace NetSync_Mobile
 
         void CreateAddingDialog()
         {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            ContextThemeWrapper ctw = new ContextThemeWrapper(this, Android.Resource.Style.ThemeHoloLightDarkActionBar);
+            AlertDialog.Builder builder = new AlertDialog.Builder(ctw);
             LayoutInflater inflater = Application.Context.GetSystemService(LayoutInflaterService) as LayoutInflater;
             View view = inflater.Inflate(Resource.Layout.AddingProfile, null);
             builder.SetView(view);
-            
+
             EditText profileName = view.FindViewById<EditText>(Resource.Id.SyncProfileName);
-            Button selectFolder_btn = view.FindViewById<Button>(Resource.Id.SelectFolderPath_btn);
+            ImageButton selectFolder_btn = view.FindViewById<ImageButton>(Resource.Id.SelectFolder_btn);
             selectFolder_btn.Click += (sender, e) =>
             {
                 var intent = new Intent(this, typeof(FolderPickerActivity));
                 StartActivity(intent);
             };
 
-            builder.SetTitle("Adding new sync profile")
-            .SetPositiveButton("Accept", (senderAlert, args) =>
+            builder.SetTitle("ДОБАВИТЬ НОВЫЙ ПРОФИЛЬ")
+            .SetPositiveButton("ОК", (senderAlert, args) =>
             {
                 if (SyncProfilesHandler.AddNewProfile(profileName.Text, AppData.SelectedFolderPath, this))
                 {
-                    MessageDisplayer.ShowSuccessMessage(this, "System notifications", "New profile was successfully added.");
+                    MessageDisplayer.ShowSuccessMessage(this, "Системные оповещения", "Новый профиль успешно добавлен.");
                     Synchroniser service = new Synchroniser(new FolderHandler(AppData.SelectedFolderPath));
                     service.CreateSyncDataStore();
                 }
                 profilesListView.Adapter = new ProfilesListAdapter(this, SyncProfilesHandler.AvailableProfilesList);
             })
-            .SetNegativeButton("Cancel", (senderAlert, args) =>
+            .SetNegativeButton("Отмена", (senderAlert, args) =>
             {
-                Toast.MakeText(this, "Adding was canceled!", ToastLength.Short).Show();
+                Toast.MakeText(this, "Добавление профиля отменено!", ToastLength.Short).Show();
             });
 
             Dialog dialog = builder.Create();
